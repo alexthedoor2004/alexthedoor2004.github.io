@@ -4,99 +4,115 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alex Laporte</title>
-  <meta name="description" content="Alex Laporte — finance, startups, and projects. Waterloo, Ottawa, Montreal, San Francisco.">
+  <meta name="description" content="Alex Laporte — finance, startups, and projects.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="wrap nav">
-    <a class="name" href="index.html">Alex Laporte</a>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="thoughts/index.html">Thoughts</a>
-      <a href="projects/index.html">Projects</a>
-    </nav>
-  </header>
+  <main class="page">
+    <header class="intro">
+      <div class="intro-top rise">
+        <h1 class="name">Alex Laporte</h1>
+        <time class="time" id="time" title="Time in Waterloo"></time>
+      </div>
+      <p class="muted rise" style="--i:1">finance, startups, and figuring out where the money goes</p>
+    </header>
 
-  <main class="wrap">
-    <!-- INTRO -->
-    <section class="intro">
-      <p>Hi, I'm Alex. I'm finishing up Science &amp; Financial Management at the University of Waterloo, and I've spent the last few years bouncing between Big Four firms, a government agency, a venture fund and a YC startup.</p>
-      <p class="muted">I like figuring out where the money actually goes. Bilingual, from Ottawa, usually planning the next trip. More about that <a href="about.html">here</a>.</p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <ol class="list">
-        <li class="job">
-          <div class="job-head"><span><a href="https://uwaterloo.ca/school-of-accounting-and-finance/svf-fall-2026-team" target="_blank" rel="noopener">Waterloo Student Venture Fund</a> <span class="role">· Associate</span></span><span class="when">2026 – now</span></div>
-          <p>Looking at early-stage startups for a student-run fund with $2M under management: finding deals, building models, and arguing about valuations. Got double-promoted after my first term and now run a deal team of five.</p>
-        </li>
-        <li class="job">
-          <div class="job-head"><span><a href="https://www.finta.com" target="_blank" rel="noopener">Finta (YC W23)</a> <span class="role">· Growth</span></span><span class="when">Summer 2026</span></div>
-          <p>Moved to San Francisco to learn more about how startups work. Did some outbound, wrote some content, and hosted some events.</p>
-        </li>
-        <li class="job">
-          <div class="job-head"><span><a href="https://www.deloitte.com/ca/en.html" target="_blank" rel="noopener">Deloitte</a> <span class="role">· Forensic, Strategy Risk &amp; Transactions</span></span><span class="when">Winter 2025</span></div>
-          <p>Went back into “consulting” to catch financial crime, whatever that means.</p>
-        </li>
-        <!-- TODO: confirm Finance Canada dates -->
-        <li class="job">
-          <div class="job-head"><span><a href="https://www.canada.ca/en/department-finance.html" target="_blank" rel="noopener">Finance Canada</a> <span class="role">· Analyst</span></span><span class="when">—</span></div>
-          <p>Helped do the boring stuff so others could catch money laundering.</p>
-        </li>
-        <li class="job">
-          <div class="job-head"><span><a href="https://www.ey.com/en_ca" target="_blank" rel="noopener">EY</a> <span class="role">· Staff Accountant</span></span><span class="when">Winter 2024</span></div>
-          <p>Learned a lot about corporate tax.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- LATEST THOUGHTS (add new posts to the top) -->
+    <!-- ABOUT -->
     <section>
-      <h2>Recent thoughts</h2>
-      <div class="row"><a href="thoughts/hello.html">Why I made this site</a><span class="when">Nov 2026</span></div>
-      <p style="margin-top:12px"><a class="muted" href="thoughts/index.html">All thoughts →</a></p>
+      <h2 class="rise" style="--i:2">about</h2>
+      <div class="prose rise" style="--i:3">
+        <p>Finishing up Science &amp; Financial Management at the University of Waterloo. Bilingual, from Ottawa, usually planning the next trip. <a class="u" href="about.html">More</a></p>
+      </div>
+    </section>
+
+    <!-- PAST (experience) -->
+    <section>
+      <h2 class="rise" style="--i:4">past</h2>
+      <div class="rows">
+        <div class="row rise" style="--i:5">
+          <a href="https://uwaterloo.ca/school-of-accounting-and-finance/svf-fall-2026-team" target="_blank" rel="noopener">Student Venture Fund</a>
+          <p>Associate on Waterloo's $2M student-run fund. Double-promoted after one term, now lead a deal team of five.</p>
+        </div>
+        <div class="row rise" style="--i:6">
+          <a href="https://www.finta.com" target="_blank" rel="noopener">Finta</a>
+          <p>Moved to San Francisco to learn more about how startups work. Did some outbound, wrote some content, and hosted some events.</p>
+        </div>
+        <div class="row rise" style="--i:7">
+          <a href="https://www.deloitte.com/ca/en.html" target="_blank" rel="noopener">Deloitte</a>
+          <p>Went back into “consulting” to catch financial crime, whatever that means.</p>
+        </div>
+        <div class="row rise" style="--i:8">
+          <a href="https://www.canada.ca/en/department-finance.html" target="_blank" rel="noopener">Finance Canada</a>
+          <p>Helped do the boring stuff so others could catch money laundering.</p>
+        </div>
+        <div class="row rise" style="--i:9">
+          <a href="https://www.ey.com/en_ca" target="_blank" rel="noopener">EY</a>
+          <p>Learned a lot about corporate tax.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS: add rows like the commented one below, newest first, and delete the "coming soon" row -->
+    <section>
+      <h2 class="rise" style="--i:10">projects</h2>
+      <div class="rows">
+        <!--
+        <div class="row">
+          <a href="https://link-to-project" target="_blank" rel="noopener">Project name</a>
+          <p>One line on what it is.</p>
+        </div>
+        -->
+        <div class="row rise" style="--i:11"><span class="muted">Soon</span><p>Working on a few things.</p></div>
+      </div>
+    </section>
+
+    <!-- THOUGHTS: newest first. Each post is a file in thoughts/ -->
+    <section>
+      <h2 class="rise" style="--i:12">thoughts</h2>
+      <div class="rows">
+        <a class="row rise" style="--i:13" href="thoughts/hello.html"><span>Nov 2026</span><p>Why I made this site</p></a>
+      </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Say wsp</h2>
-      <!-- Messages are delivered to Alex's inbox by Web3Forms. The access key is safe to be public;
-           the email address itself never appears in this page. -->
-      <form class="contact" id="contact-form">
-        <input type="hidden" name="access_key" value="006b8a2b-bbd8-40bd-89b7-24ab721c706a">
-        <input type="hidden" name="subject" value="New message from your website">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
-        <label>Name<input name="name" required autocomplete="name"></label>
-        <label>Email<input name="email" type="email" required autocomplete="email"></label>
-        <label>Message<textarea name="message" rows="5" required></textarea></label>
-        <button type="submit">Send</button>
-        <p class="form-status muted" role="status"></p>
-      </form>
-      <p class="muted" style="margin-top:32px">
-        <a href="https://www.linkedin.com/in/alexandre-laporte-3610a8255/" target="_blank" rel="noopener">LinkedIn</a> ·
-        <a href="https://github.com/alexthedoor2004" target="_blank" rel="noopener">GitHub</a> ·
-        <a href="https://x.com/alex_laporte__" target="_blank" rel="noopener">@alex_laporte__</a>
-      </p>
+      <h2 class="rise" style="--i:14">contact</h2>
+      <div class="rows">
+        <div class="row rise" style="--i:15">
+          <span>Say wsp</span>
+          <!-- Messages are delivered to Alex's inbox by Web3Forms. The access key is safe to be public;
+               the email address itself never appears in this page. -->
+          <form class="contact" id="contact-form">
+            <input type="hidden" name="access_key" value="006b8a2b-bbd8-40bd-89b7-24ab721c706a">
+            <input type="hidden" name="subject" value="New message from your website">
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+            <input name="name" required autocomplete="name" placeholder="Name" aria-label="Name">
+            <input name="email" type="email" required autocomplete="email" placeholder="Email" aria-label="Email">
+            <textarea name="message" rows="3" required placeholder="Message" aria-label="Message"></textarea>
+            <button type="submit">Send →</button>
+            <p class="form-status" role="status"></p>
+          </form>
+        </div>
+        <a class="row rise" style="--i:16" href="https://x.com/alex_laporte__" target="_blank" rel="noopener"><span>X</span><p>@alex_laporte__</p></a>
+        <a class="row rise" style="--i:17" href="https://www.linkedin.com/in/alexandre-laporte-3610a8255/" target="_blank" rel="noopener"><span>LinkedIn</span><p>Alexandre Laporte</p></a>
+        <a class="row rise" style="--i:18" href="https://github.com/alexthedoor2004" target="_blank" rel="noopener"><span>GitHub</span><p>alexthedoor2004</p></a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap"><span>© <span id="year">2026</span> Alex Laporte</span></div>
-  </footer>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Local time in Waterloo, like jay.tel's clock
+    const t = document.getElementById('time');
+    const tick = () => { t.textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Toronto' }).replace(' ', '').toLowerCase(); };
+    tick(); setInterval(tick, 15000);
 
     const form = document.getElementById('contact-form');
     const status = form.querySelector('.form-status');
     form.addEventListener('submit', async e => {
       e.preventDefault();
-      if (form.access_key.value.startsWith('YOUR_')) { status.textContent = 'Contact form isn’t set up yet.'; return; }
       const btn = form.querySelector('button');
       btn.disabled = true; status.textContent = 'Sending…';
       try {
@@ -109,7 +125,7 @@
         if (!data.success) throw new Error(data.message);
         form.reset(); status.textContent = 'Thanks, I’ll get back to you soon.';
       } catch {
-        status.textContent = 'Something went wrong. Try again in a bit, or reach me on LinkedIn.';
+        status.textContent = 'Something went wrong. Try again in a bit, or reach me on X.';
       } finally { btn.disabled = false; }
     });
   </script>

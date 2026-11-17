@@ -1,5 +1,5 @@
-/* ---------- Theme ---------- */
-/* Blush palette, light only */
+/* Blush palette, light only. Layout follows jay.tel: one font, one size,
+   left-aligned, lowercase section labels, two-column rows. */
 :root {
   color-scheme: light;
   --bg: #fdf5f3;      /* blush white */
@@ -10,11 +10,9 @@
   --accent: #c7737f;  /* rose for hovers */
   --serif: "Fraunces", Georgia, serif;
   --sans: "DM Sans", system-ui, -apple-system, sans-serif;
-  --max: 580px;
-  --wide: 980px;
+  --label: 180px;     /* left column width */
 }
 
-/* ---------- Base ---------- */
 * { box-sizing: border-box; }
 
 body {
@@ -22,100 +20,86 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection { background: var(--faint); }
 
-a { color: inherit; text-decoration: underline; text-decoration-color: var(--faint); text-decoration-thickness: 1.5px; text-underline-offset: 3px; transition: text-decoration-color .15s, color .15s; }
-a:hover { text-decoration-color: var(--accent); }
+h1, h2, h3, p { margin: 0; font-size: inherit; font-weight: 400; }
 
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-.wrap.wide { max-width: var(--wide); }
+a { color: inherit; text-decoration: none; transition: color .15s; }
+a:hover { color: var(--accent); }
+.u { text-decoration: underline; text-decoration-color: var(--faint); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.u:hover { text-decoration-color: var(--accent); }
 
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.25; }
-h1 { font-size: 30px; letter-spacing: -0.01em; }
-h2 { font-size: 21px; color: var(--muted); font-style: italic; margin-bottom: 20px; }
-p { margin: 0 0 16px; }
 .muted { color: var(--muted); }
 
-/* ---------- Nav ---------- */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding-top: 56px;
-  padding-bottom: 72px;
+/* ---------- Page frame ---------- */
+.page {
+  max-width: 700px;
+  padding: 32vh 26px 18vh;
 }
-.nav a { text-decoration: none; }
-.nav .name { font-family: var(--serif); font-size: 22px; }
-.nav nav { display: flex; gap: 18px; }
-.nav nav a { color: var(--muted); }
-.nav nav a:hover { color: var(--accent); }
-.nav nav a[aria-current="page"] { color: var(--text); }
+.page.short { padding-top: 18vh; }
+
+/* ---------- Header ---------- */
+.intro { margin-bottom: 96px; }
+.intro-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.name { font-family: var(--serif); font-size: 19px; }
+.time { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.time::after { content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 12px; border-radius: 50%; background: var(--accent); vertical-align: middle; }
 
 /* ---------- Sections ---------- */
-section { margin-bottom: 64px; }
-.intro p { max-width: 34em; }
+section { margin-bottom: 88px; }
+section > h2 { color: var(--muted); margin-bottom: 26px; }
 
-/* ---------- Experience ---------- */
-.list { list-style: none; margin: 0; padding: 0; }
-.job { padding: 0 0 28px; }
-.job-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
-.job-head .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.job-head > span:first-child { font-weight: 500; }
-.job-head .role { color: var(--muted); font-weight: 400; }
-.job p { margin: 0; }
+.rows { display: grid; gap: 14px; }
+.row { display: grid; grid-template-columns: var(--label) 1fr; gap: 20px; }
+.row > :last-child { color: var(--muted); max-width: 30em; }
+a.row:hover > :first-child, .row a:hover { color: var(--accent); }
 
-/* simple rows: thoughts index, small lists */
-.row { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; }
-.row .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.prose { color: var(--muted); max-width: 32em; }
+.prose p + p { margin-top: 14px; }
+.prose a { color: var(--text); }
+.prose a:hover { color: var(--accent); }
 
 /* ---------- Post ---------- */
-.post h1 { margin-bottom: 4px; }
-.post .meta { color: var(--muted); margin-bottom: 40px; }
-.post p, .post li { max-width: 36em; }
-.post blockquote { margin: 24px 0; padding-left: 16px; border-left: 1px solid var(--faint); color: var(--muted); }
+.post .prose { color: var(--text); }
+.post blockquote { margin: 20px 0; padding-left: 16px; border-left: 1.5px solid var(--faint); color: var(--muted); }
 .post img { width: 100%; height: auto; margin: 16px 0; }
-.back { display: inline-block; margin-top: 48px; color: var(--muted); text-decoration: none; }
-.back:hover { color: var(--text); }
-
-/* ---------- Projects ---------- */
-.project { padding: 0 0 28px; }
-.project-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
-.project-head > :first-child { font-weight: 500; }
-.project-head .when { color: var(--muted); white-space: nowrap; }
-.project p { margin: 0; color: var(--muted); }
-.empty { background: var(--tile); padding: 28px 24px; color: var(--muted); border-radius: 4px; }
 
 /* ---------- Contact form ---------- */
-.contact { display: grid; gap: 16px; max-width: 34em; }
-.contact label { display: grid; gap: 4px; color: var(--muted); }
+.contact { display: grid; gap: 14px; max-width: 30em; }
 .contact input, .contact textarea {
   font: inherit; color: var(--text);
   background: transparent;
-  border: 0; border-bottom: 1px solid var(--faint);
-  padding: 6px 0; border-radius: 0; resize: vertical;
+  border: 0; border-bottom: 1.5px solid var(--faint);
+  padding: 2px 0 6px; border-radius: 0; resize: vertical;
+  width: 100%;
 }
+.contact ::placeholder { color: var(--muted); opacity: .8; }
 .contact input:focus, .contact textarea:focus { outline: none; border-bottom-color: var(--accent); }
 .contact button {
   justify-self: start; font: inherit; color: var(--text);
-  background: transparent; border: 1px solid var(--faint);
-  padding: 6px 18px; cursor: pointer;
+  background: transparent; border: 0; padding: 0; cursor: pointer;
 }
-.contact button:hover { border-color: var(--accent); color: var(--accent); }
+.contact button:hover { color: var(--accent); }
 .contact button:disabled { opacity: .5; cursor: default; }
-.contact .form-status { margin: 0; min-height: 1.7em; }
+.contact .form-status { color: var(--muted); min-height: 1.6em; }
 .contact .hp { display: none; }
 
-/* ---------- Footer ---------- */
-footer { padding-top: 24px; padding-bottom: 56px; color: var(--muted); }
-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+/* ---------- Entrance ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { opacity: 0; transform: translateY(6px); animation: rise .6s ease forwards; animation-delay: calc(var(--i, 0) * 60ms); }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+}
 
 /* ---------- Mobile ---------- */
 @media (max-width: 560px) {
-  .nav { flex-direction: column; gap: 6px; padding-top: 36px; padding-bottom: 48px; }
-  .job-head, .project-head, .row { flex-direction: column; gap: 0; }
+  .page { padding: 20vh 20px 14vh; }
+  .intro { margin-bottom: 72px; }
+  section { margin-bottom: 64px; }
+  .row { grid-template-columns: 1fr; gap: 0; }
+  .rows { gap: 18px; }
 }
