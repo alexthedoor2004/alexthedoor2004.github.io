@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travel — Alex Laporte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="wrap wide nav">
+    <a class="name" href="../index.html">Alex Laporte</a>
+    <nav>
+      <a href="../story.html">Story</a>
+      <a href="../thoughts/index.html">Thoughts</a>
+      <a href="index.html" aria-current="page">Travel</a>
+    </nav>
+  </header>
+
+  <main class="wrap wide">
+    <section>
+      <h2>Travel</h2>
+      <p class="muted">Places I've been. Click a photo to see it bigger.</p>
+    </section>
+
+    <!--
+      ADDING A TRIP
+      1. Put photos in assets/travel/<place>/ (e.g. assets/travel/san-francisco/01.jpg).
+         Resize to ~2000px wide first so the page stays fast.
+      2. Copy one <article class="trip"> block below and swap the <div class="ph"> tiles for:
+         <img src="../assets/travel/san-francisco/01.jpg" alt="Short description" loading="lazy">
+         Add class="wide" to an <img> to make it span two columns.
+    -->
+
+    <article class="trip">
+      <div class="trip-head"><span>San Francisco</span><span class="when">Summer 2026</span></div>
+      <p>Four months working at a startup and wandering the city on weekends.</p>
+      <div class="gallery">
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+      </div>
+    </article>
+
+    <article class="trip">
+      <div class="trip-head"><span>Montreal</span><span class="when">Fall 2025</span></div>
+      <p>A term in the city, mostly in French.</p>
+      <div class="gallery">
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+        <div class="ph">photo</div>
+      </div>
+    </article>
+  </main>
+
+  <div class="lightbox" id="lightbox"><img alt=""></div>
+
+  <footer>
+    <div class="wrap wide"><span>© 2026 Alex Laporte</span></div>
+  </footer>
+
+  <script>
+    const box = document.getElementById('lightbox');
+    const big = box.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => { big.src = img.src; big.alt = img.alt; box.classList.add('open'); });
+    });
+    box.addEventListener('click', () => box.classList.remove('open'));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') box.classList.remove('open'); });
+  </script>
+</body>
+</html>
