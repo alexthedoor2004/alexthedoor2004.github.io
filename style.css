@@ -8,8 +8,8 @@
   --faint: #efd6d4;   /* light blush lines */
   --tile: #f8e6e3;    /* soft pink fill */
   --accent: #c7737f;  /* rose for hovers */
-  --serif: "Fraunces", Georgia, serif;
-  --sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Geist", system-ui, -apple-system, sans-serif;
   --label: 180px;     /* left column width */
 }
 
@@ -45,8 +45,8 @@ a:hover { color: var(--accent); }
 
 /* ---------- Header ---------- */
 .intro { margin-bottom: 96px; }
-.intro-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-.name { font-family: var(--serif); font-size: 19px; }
+.intro-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+.name { font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1; }
 .time { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .time::after { content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 12px; border-radius: 50%; background: var(--accent); vertical-align: middle; }
 
