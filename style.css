@@ -58,6 +58,9 @@ section > h2 { color: var(--muted); margin-bottom: 26px; }
 .row { display: grid; grid-template-columns: var(--label) 1fr; gap: 20px; }
 .row > :last-child { color: var(--muted); max-width: 30em; }
 a.row:hover > :first-child, .row a:hover { color: var(--accent); }
+.row.dated { grid-template-columns: var(--label) 1fr auto; }
+.row.dated > p { color: var(--muted); }
+.row.dated > .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; }
 
 .prose { color: var(--muted); max-width: 32em; }
 .prose p + p { margin-top: 14px; }
@@ -102,4 +105,9 @@ a.row:hover > :first-child, .row a:hover { color: var(--accent); }
   section { margin-bottom: 64px; }
   .row { grid-template-columns: 1fr; gap: 0; }
   .rows { gap: 18px; }
+  /* phones: company and dates on one line, description below */
+  .row.dated { grid-template-columns: 1fr auto; grid-template-areas: "co when" "desc desc"; column-gap: 12px; }
+  .row.dated > :first-child { grid-area: co; }
+  .row.dated > p { grid-area: desc; }
+  .row.dated > .when { grid-area: when; }
 }
