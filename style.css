@@ -108,6 +108,10 @@ a.row:hover > :first-child, .row a:hover { color: var(--accent); }
   /* phones: company and dates on one line, description below */
   .row.dated { grid-template-columns: 1fr auto; grid-template-areas: "co when" "desc desc"; column-gap: 12px; }
   .row.dated > :first-child { grid-area: co; }
-  .row.dated > p { grid-area: desc; }
+  .row.dated > p { grid-area: desc; margin-top: 4px; }
   .row.dated > .when { grid-area: when; }
 }
+
+/* Company + position stacked in the left column */
+.co { display: flex; flex-direction: column; }
+.co .role { color: var(--muted); }
