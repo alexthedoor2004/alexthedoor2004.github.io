@@ -20,4 +20,4 @@ Links are relative (no leading `/`) so it works as a user or project Pages site.
 - Keep it dependency-free: no npm, no frameworks, no build tools unless Alex asks.
 - Minimal style: one font size, muted grey for secondary text, lots of whitespace. Must look good on mobile and in dark mode.
 - Experience blurbs are 2–3 casual sentences, not resume bullets.
-- Don't put a personal email address in the page without Alex confirming which one.
+- Never put Alex's email, phone number or address in the page. Contact goes through the form on the home page (Web3Forms; the access key in `index.html` is public-safe and routes to Alex's inbox).

@@ -73,10 +73,20 @@
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Elsewhere</h2>
-      <p>
-        <!-- TODO: confirm which email to show -->
-        <a href="mailto:you@example.com">Email</a> ·
+      <h2>Say hi</h2>
+      <!-- Messages are delivered to Alex's inbox by Web3Forms. The access key is safe to be public;
+           the email address itself never appears in this page. -->
+      <form class="contact" id="contact-form">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New message from your website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <button type="submit">Send</button>
+        <p class="form-status muted" role="status"></p>
+      </form>
+      <p class="muted" style="margin-top:32px">
         <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a> ·
         <a href="https://github.com/alexthedoor2004" target="_blank" rel="noopener">GitHub</a>
       </p>
@@ -87,6 +97,29 @@
     <div class="wrap"><span>© <span id="year">2026</span> Alex Laporte</span><span>Waterloo, ON</span></div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contact-form');
+    const status = form.querySelector('.form-status');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (form.access_key.value.startsWith('YOUR_')) { status.textContent = 'Contact form isn’t set up yet.'; return; }
+      const btn = form.querySelector('button');
+      btn.disabled = true; status.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.message);
+        form.reset(); status.textContent = 'Thanks, I’ll get back to you soon.';
+      } catch {
+        status.textContent = 'Something went wrong. Try again in a bit, or reach me on LinkedIn.';
+      } finally { btn.disabled = false; }
+    });
+  </script>
 </body>
 </html>
