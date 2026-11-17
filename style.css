@@ -1,22 +1,17 @@
 /* ---------- Theme ---------- */
+/* Blush palette, light only */
 :root {
-  --bg: #fbfbfa;
-  --text: #1a1a1a;
-  --muted: #8a8a85;
-  --faint: #d9d9d4;
-  --tile: #ececE8;
+  color-scheme: light;
+  --bg: #fdf5f3;      /* blush white */
+  --text: #3d2a2e;    /* deep plum-brown, high contrast */
+  --muted: #8c6a70;   /* dusty rose-brown */
+  --faint: #efd6d4;   /* light blush lines */
+  --tile: #f8e6e3;    /* soft pink fill */
+  --accent: #c7737f;  /* rose for hovers */
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "DM Sans", system-ui, -apple-system, sans-serif;
   --max: 580px;
   --wide: 980px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111110;
-    --text: #ededea;
-    --muted: #85857f;
-    --faint: #2c2c2a;
-    --tile: #1f1f1d;
-  }
 }
 
 /* ---------- Base ---------- */
@@ -26,21 +21,23 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  font-size: 15px;
+  font-family: var(--sans);
+  font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: inherit; text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; transition: text-decoration-color .15s; }
-a:hover { text-decoration-color: currentColor; }
+::selection { background: var(--faint); }
+
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--faint); text-decoration-thickness: 1.5px; text-underline-offset: 3px; transition: text-decoration-color .15s, color .15s; }
+a:hover { text-decoration-color: var(--accent); }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 .wrap.wide { max-width: var(--wide); }
 
-h1, h2, h3 { font-weight: 500; margin: 0; line-height: 1.3; }
-h1 { font-size: 15px; }
-h2 { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.25; }
+h1 { font-size: 30px; letter-spacing: -0.01em; }
+h2 { font-size: 21px; color: var(--muted); font-style: italic; margin-bottom: 20px; }
 p { margin: 0 0 16px; }
 .muted { color: var(--muted); }
 
@@ -53,10 +50,11 @@ p { margin: 0 0 16px; }
   padding-bottom: 72px;
 }
 .nav a { text-decoration: none; }
-.nav .name { font-weight: 500; }
+.nav .name { font-family: var(--serif); font-size: 22px; }
 .nav nav { display: flex; gap: 18px; }
 .nav nav a { color: var(--muted); }
-.nav nav a:hover, .nav nav a[aria-current="page"] { color: var(--text); }
+.nav nav a:hover { color: var(--accent); }
+.nav nav a[aria-current="page"] { color: var(--text); }
 
 /* ---------- Sections ---------- */
 section { margin-bottom: 64px; }
@@ -67,7 +65,8 @@ section { margin-bottom: 64px; }
 .job { padding: 0 0 28px; }
 .job-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
 .job-head .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.job-head .role { color: var(--muted); }
+.job-head > span:first-child { font-weight: 500; }
+.job-head .role { color: var(--muted); font-weight: 400; }
 .job p { margin: 0; }
 
 /* simple rows: thoughts index, small lists */
@@ -83,31 +82,13 @@ section { margin-bottom: 64px; }
 .back { display: inline-block; margin-top: 48px; color: var(--muted); text-decoration: none; }
 .back:hover { color: var(--text); }
 
-/* ---------- Travel ---------- */
-.trip { margin-bottom: 80px; }
-.trip-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
-.trip-head .when { color: var(--muted); }
-.trip > p { color: var(--muted); max-width: 34em; margin-bottom: 20px; }
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.gallery img, .gallery .ph {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
-  background: var(--tile);
-  cursor: zoom-in;
-}
-.gallery .wide { grid-column: span 2; aspect-ratio: auto; height: 100%; }
-.gallery .ph { cursor: default; display: grid; place-items: center; color: var(--muted); font-size: 13px; }
-
-.lightbox {
-  position: fixed; inset: 0; z-index: 50;
-  background: color-mix(in srgb, var(--bg) 96%, transparent);
-  display: none; align-items: center; justify-content: center;
-  padding: 24px; cursor: zoom-out;
-}
-.lightbox.open { display: flex; }
-.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+/* ---------- Projects ---------- */
+.project { padding: 0 0 28px; }
+.project-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
+.project-head > :first-child { font-weight: 500; }
+.project-head .when { color: var(--muted); white-space: nowrap; }
+.project p { margin: 0; color: var(--muted); }
+.empty { background: var(--tile); padding: 28px 24px; color: var(--muted); border-radius: 4px; }
 
 /* ---------- Contact form ---------- */
 .contact { display: grid; gap: 16px; max-width: 34em; }
@@ -118,13 +99,13 @@ section { margin-bottom: 64px; }
   border: 0; border-bottom: 1px solid var(--faint);
   padding: 6px 0; border-radius: 0; resize: vertical;
 }
-.contact input:focus, .contact textarea:focus { outline: none; border-bottom-color: var(--text); }
+.contact input:focus, .contact textarea:focus { outline: none; border-bottom-color: var(--accent); }
 .contact button {
   justify-self: start; font: inherit; color: var(--text);
   background: transparent; border: 1px solid var(--faint);
   padding: 6px 18px; cursor: pointer;
 }
-.contact button:hover { border-color: var(--text); }
+.contact button:hover { border-color: var(--accent); color: var(--accent); }
 .contact button:disabled { opacity: .5; cursor: default; }
 .contact .form-status { margin: 0; min-height: 1.7em; }
 .contact .hp { display: none; }
@@ -136,7 +117,5 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 /* ---------- Mobile ---------- */
 @media (max-width: 560px) {
   .nav { flex-direction: column; gap: 6px; padding-top: 36px; padding-bottom: 48px; }
-  .job-head, .trip-head, .row { flex-direction: column; gap: 0; }
-  .gallery { grid-template-columns: repeat(2, 1fr); }
-  .gallery .wide { grid-column: span 2; }
+  .job-head, .project-head, .row { flex-direction: column; gap: 0; }
 }
