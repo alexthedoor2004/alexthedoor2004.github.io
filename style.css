@@ -39,6 +39,7 @@ a:hover { color: var(--accent); }
 /* ---------- Page frame ---------- */
 .page {
   max-width: 700px;
+  margin: 0 auto;     /* centre the column on the page */
   padding: 32vh 26px 18vh;
 }
 .page.short { padding-top: 18vh; }
