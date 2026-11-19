@@ -10,7 +10,7 @@
   --accent: #c7737f;  /* rose for hovers */
   --serif: "Instrument Serif", Georgia, serif;
   --sans: "Geist", system-ui, -apple-system, sans-serif;
-  --label: 180px;     /* left column width */
+  --label: 200px;     /* left column width */
 }
 
 * { box-sizing: border-box; }
@@ -112,6 +112,17 @@ a.row:hover > :first-child, .row a:hover { color: var(--accent); }
   .row.dated > p { grid-area: desc; margin-top: 4px; }
   .row.dated > .when { grid-area: when; }
 }
+
+/* Small arrows mark what's clickable: ↗ opens another site, → stays on this one */
+.co a::after, .prose a::after, a.row > :first-child::after {
+  /* inline (not inline-block) so the arrow never wraps away from its word */
+  content: "→"; position: relative; left: 0; top: 0; margin-left: 4px;
+  font-size: .8em; color: var(--muted); opacity: .7;
+  transition: left .15s, top .15s, color .15s, opacity .15s;
+}
+.co a[target]::after, .prose a[target]::after, a.row[target] > :first-child::after { content: "↗"; }
+.co a:hover::after, .prose a:hover::after, a.row:hover > :first-child::after { color: var(--accent); opacity: 1; left: 2px; }
+.co a[target]:hover::after, .prose a[target]:hover::after, a.row[target]:hover > :first-child::after { top: -2px; }
 
 /* Company + position stacked in the left column */
 .co { display: flex; flex-direction: column; }
