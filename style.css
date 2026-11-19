@@ -97,6 +97,9 @@ a.row:hover > :first-child, .row a:hover { color: var(--accent); }
 @media (prefers-reduced-motion: no-preference) {
   .rise { opacity: 0; transform: translateY(6px); animation: rise .6s ease forwards; animation-delay: calc(var(--i, 0) * 60ms); }
   @keyframes rise { to { opacity: 1; transform: none; } }
+  /* the dot beside the clock breathes softly */
+  .time::after { animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 }
 
 /* ---------- Mobile ---------- */
@@ -123,6 +126,14 @@ a.row:hover > :first-child, .row a:hover { color: var(--accent); }
 .co a[target]::after, .prose a[target]::after, a.row[target] > :first-child::after { content: "↗"; }
 .co a:hover::after, .prose a:hover::after, a.row:hover > :first-child::after { color: var(--accent); opacity: 1; left: 2px; }
 .co a[target]:hover::after, .prose a[target]:hover::after, a.row[target]:hover > :first-child::after { top: -2px; }
+/* X / LinkedIn: arrow sits beside the username instead of the label */
+a.row.handle > :first-child::after { content: none; }
+a.row.handle > p::after {
+  content: "↗"; position: relative; left: 0; top: 0; margin-left: 4px;
+  font-size: .8em; opacity: .7; transition: left .15s, top .15s, color .15s, opacity .15s;
+}
+a.row.handle:hover > p, a.row.handle:hover > p::after { color: var(--accent); opacity: 1; }
+a.row.handle:hover > p::after { left: 2px; top: -2px; }
 
 /* Company + position stacked in the left column */
 .co { display: flex; flex-direction: column; }

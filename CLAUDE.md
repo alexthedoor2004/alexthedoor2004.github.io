@@ -18,5 +18,5 @@ Links are relative (no leading `/`) so it works as a user or project Pages site.
 ## Conventions
 - Keep it dependency-free: no npm, no frameworks, no build tools unless Alex asks.
 - Minimal style: Geist at one size everywhere (Instrument Serif italic only for the name), muted rose for secondary text, lots of whitespace. Elements with class `rise` fade in, staggered by `--i`. Must look good on mobile. Keep text readable (body text in `--text`, not too pale).
-- Experience rows are company (linked) + one short, casual line. No BNP, Watsolve or CFA.
+- Experience rows are company (linked) + position + one short, casual line, newest first. No Watsolve. The 2023 government role is listed as Finance Canada — never name the actual agency on the site.
 - Never put Alex's email, phone number or address in the page. Contact goes through the form on the home page (Web3Forms; the access key in `index.html` is public-safe and routes to Alex's inbox).
