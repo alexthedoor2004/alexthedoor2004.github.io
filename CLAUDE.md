@@ -4,7 +4,7 @@ Alex's personal website. Layout follows jay.tel: one font, one size, left-aligne
 
 ## Files
 - `index.html` — everything on one page: about, past (experience), projects, thoughts, contact. Projects are rows in the projects section (commented template there).
-- `about.html` — longer "about me" story.
+- `about.html` — longer "about me" story. Not linked from the home page right now (the home about section is self-contained).
 - `thoughts/` — writing. `index.html` lists posts; each post is its own file. Copy `_template.html` to add one, then add a row to `thoughts/index.html` and the home page's thoughts section (newest first).
 - `style.css` — all styling. Pages link it as `style.css?v=N`; bump N in every HTML file after changing it so browsers drop their cached copy. Blush palette and fonts (Geist body, Instrument Serif for the name) are CSS variables at the top (`:root`). Light only, no dark mode.
 
